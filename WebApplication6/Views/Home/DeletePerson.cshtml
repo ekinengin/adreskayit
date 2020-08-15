@@ -1,0 +1,41 @@
+﻿@using WebApplication6.Models
+@model Person
+
+@{
+    ViewBag.Title = "UpdatePerson";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete Person</h2>
+<hr />
+<br />
+
+<div class="alert alert-danger" role="alert">
+    Bu kaydı silmek istediğinizden emin misiniz?
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Id) @*ID yi saklıyoruz gizli bir textbox ile..*@
+    <table>
+        <tr>
+            <td><b>İsminiz :</b></td>
+            <td><i>@Model.FirstName</i></td>
+        </tr>
+        <tr>
+            <td><b>Soyisminiz :</b></td>
+            <td><i>@Model.LastName</i></td>
+        </tr>
+        <tr>
+            <td><b>Yaş :</b></td>
+            <td><i>@Model.Age</i></td>
+        </tr>
+    </table>
+    <br />
+    <hr />
+
+    <div>
+        <button type="submit" class="btn btn-danger btn-sm">Kişi Sil</button>
+    </div>     
+}
+

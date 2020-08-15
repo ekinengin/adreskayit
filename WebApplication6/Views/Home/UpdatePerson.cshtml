@@ -1,0 +1,61 @@
+﻿@using WebApplication6.Models
+@model Person
+
+@{
+    ViewBag.Title = "UpdatePerson";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>UpdatePerson</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="txtad">Adınız       </span>
+        </div>
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", aria_label = "Username", aria_describedby = "txtad" })
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="txtsoyad">Soyadınız </span>
+        </div>
+        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", aria_label = "Username", aria_describedby = "txtsoyad" })
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="txtyas">Yaşınız     </span>
+        </div>
+        @Html.TextBoxFor(x => x.Age, new { @class = "form-control", aria_label = "Username", aria_describedby = "txtyas" })
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-warning btn-sm">Kişi Güncelle</button>
+        </div>
+
+        <div class="col-md-6">
+            @*başta boş klayıt olduktan sonra değer atayacağı için null olmaktan çıkıyor*@
+            @*//Ve sadece @if bloğu ile birlikte açsaydık yani buradaki gibi bir div in için de olmasaydı hata verecekti*@
+            <div>
+
+                @if (ViewBag.result != null)
+                {
+                    <div class="alert alert-@ViewBag.status" role="alert">@ViewBag.result</div>
+                }
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+    </div>
+
+
+}
+

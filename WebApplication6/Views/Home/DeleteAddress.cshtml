@@ -1,0 +1,41 @@
+﻿@using WebApplication6.Models
+@model Address
+
+@{
+    ViewBag.Title = "UpdatePerson";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete Address</h2>
+<hr />
+<br />
+
+<div class="alert alert-danger" role="alert">
+    Bu adresi silmek istediğinizden emin misiniz?
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Id) @*IDictionary yi saklıyoruz gizli bir textbox ile..*@
+<table>
+    <tr>
+        <td><b>Adres :</b></td>
+        <td><i>@Model.OpenAddress</i></td>
+    </tr>
+    <tr>
+        <td><b>Şehir :</b></td>
+        <td><i>@Model.City</i></td>
+    </tr>
+    <tr>
+        <td><b>Kişisi :</b></td>
+        <td><i>@Model.Person.FirstName @(" ") @Model.Person.LastName</i></td>
+    </tr>
+</table>
+    <br />
+    <hr />
+
+    <div>
+        <button type="submit" class="btn btn-danger btn-sm">Adres Sil</button>
+    </div>
+}
+

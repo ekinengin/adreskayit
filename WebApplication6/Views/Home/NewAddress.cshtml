@@ -1,0 +1,61 @@
+﻿@using WebApplication6.Models
+@model Address
+
+@{
+    ViewBag.Title = "NewAddress";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>New Address</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Adresiniz  </span>
+        </div>
+        @Html.TextAreaFor(x => x.OpenAddress, new { @class = "form-control", aria_label = "With textarea", cols = "30", rows = "10" })
+    </div>
+    <br />
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="txtsehir">Şehriniz    </span>
+        </div>
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control", placeholder = "Şehrinizi giriniz..", aria_label = "Username", aria_describedby = "txtsehir" })
+    </div>
+    <br />
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="txtsehir">Adınız    </span>
+        </div>
+        @Html.DropDownListFor(x => x.Person.Id, (List<SelectListItem>)ViewBag.PersonList, new { @class = "form-control", aria_label = "Username", aria_describedby = "txtsehir" })
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary btn-sm">Adres Ekle</button>
+        </div>
+
+        <div class="col-md-6">
+            <div>
+
+                @if (ViewBag.result != null)
+                {
+                    <div class="alert alert-@ViewBag.status" role="alert">@ViewBag.result</div>
+                }
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+    </div>
+}
+
+
+
